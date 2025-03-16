@@ -1,22 +1,65 @@
-
 <!DOCTYPE html>
-<html>
-	
+<html lang="en">
 <head>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avera Solutions - Install Loader</title> <!-- Title for the website -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-	
 <body>
 
-<h1>Avera.Solutions</h1>
-	
-<h3>Key: avera.solutions</h3>
-<a href="./files/avera-solutions.exe" target="_blank">
-<button>Install Loader</button><br><br>
-</a>
+    <h1>Avera.Solutions</h1>
 
+    <!-- Box around the Key text, which can be clicked to copy -->
+    <h3>
+        Key: <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
+    </h3>
+
+    <a href="./files/avera-solutions.exe" target="_blank">
+        <button>Install Loader</button><br><br>
+    </a>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
+    <script>
+        // Function to copy the key text to the clipboard
+        function copyKey() {
+            const keyText = document.getElementById('key-box').textContent;
+            navigator.clipboard.writeText(keyText).then(function() {
+                // Notify the user that the text was copied
+                showNotification("Key copied to clipboard!");
+            }).catch(function(err) {
+                console.error('Error copying text: ', err);
+            });
+        }
+
+        // Show a notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Remove the notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Dark Mode Toggle functionality
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Toggle Light Mode';
+            } else {
+                toggleButton.textContent = 'Toggle Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>
