@@ -3,24 +3,26 @@
 <head>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta http="Expires" content="0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avera Solutions - Install Loader</title> <!-- Title for the website -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="dark-mode"> <!-- Set dark mode by default on body -->
+<body class="dark-mode"> <!-- Dark mode by default -->
 
     <h1>Avera.Solutions</h1>
 
-    <!-- Box around the Key text, which can be clicked to copy -->
-    <h3>
-        Key: <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
-    </h3>
+    <div class="content-wrapper">
+        <!-- Box around the Key text, which can be clicked to copy -->
+        <h3>
+            Key: <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
+        </h3>
 
-    <a href="./files/avera-solutions.exe" target="_blank">
-        <button>Install Loader</button><br><br>
-    </a>
+        <a href="./files/avera-solutions.exe" target="_blank">
+            <button>Install Loader</button>
+        </a>
+    </div>
 
     <!-- Dark Mode / Light Mode Toggle -->
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">
@@ -34,6 +36,15 @@
             navigator.clipboard.writeText(keyText).then(function() {
                 // Notify the user that the text was copied
                 showNotification("Key copied to clipboard!");
+                
+                // Shrink the key box after copying
+                const keyBox = document.getElementById('key-box');
+                keyBox.style.transform = "scale(0.9)";
+                
+                // Reset the size of the key box after a short delay
+                setTimeout(() => {
+                    keyBox.style.transform = "scale(1)";
+                }, 300);
             }).catch(function(err) {
                 console.error('Error copying text: ', err);
             });
