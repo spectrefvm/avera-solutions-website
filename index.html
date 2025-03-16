@@ -7,6 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avera Solutions - Install Loader</title> <!-- Title for the website -->
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body class="dark-mode"> <!-- Dark mode by default -->
@@ -26,7 +30,7 @@
 
     <!-- Dark Mode / Light Mode Toggle -->
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">
-        <span id="mode-icon" class="mode-icon">🌙</span> <!-- Moon icon for dark mode -->
+        <i id="mode-icon" class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
     </button>
 
     <script>
@@ -72,9 +76,11 @@
 
             // Toggle between sun and moon icons
             if (body.classList.contains('dark-mode')) {
-                modeIcon.textContent = '🌞'; // Sun icon for light mode
+                modeIcon.classList.remove("fa-moon");
+                modeIcon.classList.add("fa-sun"); // Sun icon for light mode
             } else {
-                modeIcon.textContent = '🌙'; // Moon icon for dark mode
+                modeIcon.classList.remove("fa-sun");
+                modeIcon.classList.add("fa-moon"); // Moon icon for dark mode
             }
         }
     </script>
