@@ -11,9 +11,15 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/dist/tsparticles.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body class="dark-mode"> <!-- Dark mode by default -->
+
+    <!-- Particles container -->
+    <div id="tsparticles"></div>
 
     <h1>Avera.Solutions</h1>
 
@@ -34,6 +40,65 @@
     </button>
 
     <script>
+        // Initialize tsParticles
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                shape: {
+                    type: "circle"
+                },
+                color: {
+                    value: "#7800d2"  // Main color of particles
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    animation: {
+                        enable: true,
+                        speed: 1,
+                        minimumValue: 0.1
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    animation: {
+                        enable: true,
+                        speed: 5,
+                        minimumValue: 1
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    outMode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detectsOn: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                }
+            }
+        });
+
         // Function to copy the key text to the clipboard
         function copyKey() {
             const keyText = document.getElementById('key-box').textContent;
