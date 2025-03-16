@@ -59,12 +59,11 @@ h3 {
     cursor: pointer;
     transition: all 0.3s ease;
     user-select: none;
-    border: 2px solid transparent;
+    border: 2px solid #7800d2; /* Border color matches main purple color */
 }
 
 .key-box:hover {
     background-color: #34495e;
-    border-color: #7800d2; /* Purple border on hover */
 }
 
 .key-box:active {
